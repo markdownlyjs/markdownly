@@ -1,11 +1,11 @@
 import React from 'react';
-import Document from './markdown/Document';
+import DocumentContainer from '../containers/DocumentContainer';
 
 export default function App() {
   return (
     <>
       <h1>Markdown Editor</h1>
-      <Document />
+      <DocumentContainer />
     </>
   );
 }
