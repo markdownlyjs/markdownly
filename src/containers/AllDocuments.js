@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateMarkdown: ({ target }) => dispatch(updateMarkdown(target.value))
+  updateMarkdown: ({ target }) => dispatch(updateMarkdown(target.value)) 
 });
 
 export default connect(
