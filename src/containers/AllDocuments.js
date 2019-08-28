@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import Document from '../components/markdown/Document';
-import { getMarkDown } from '../selectors/documentSelector';
+import { getMarkdown } from '../selectors/documentSelector';
 import { updateMarkdown } from '../actions/documentActions';
 
 const mapStateToProps = state => ({
-  markdown: getMarkDown(state)
+  markdown: getMarkdown(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateMarkdown: (markdown) => dispatch(updateMarkdown(markdown))
+  updateMarkdown: ({ target }) => {
+    dispatch(updateMarkdown(target.value));
+  }
 });
 
 export default connect(
