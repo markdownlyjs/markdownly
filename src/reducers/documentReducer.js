@@ -2,7 +2,6 @@ import { UPDATE_MARKDOWN, ADD_DOCUMENT } from '../actions/documentActions';
 
 const initialState = {
   currentDocument: 0,
-  inputValue: '',
   list: [
     {
       title: 'default',
@@ -12,14 +11,13 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  const updated = { title: state.list[state.currentDocument].title, markdown: action.payload };
   switch(action.type) {
     case UPDATE_MARKDOWN:
       return { 
         ...state, 
         list: [
           ...state.list.slice(0, state.currentDocument), 
-          updated,
+          { title: state.list[state.currentDocument].title, markdown: action.payload },
           ...state.list.slice(state.currentDocument + 1)
         ] 
       };
