@@ -4,8 +4,12 @@ import DocumentList from './DocumentList';
 
 describe('DocumentList component', () => {
   it('renders DocumentList', () => {
-    const documents = [];
-    const wrapper = shallow(<DocumentList documents={documents} />);
+    const wrapper = shallow(<DocumentList 
+      documents={[]}
+      handleFormSubmit={() => {}} 
+      handleChange={() => {}}
+      inputValue=''
+    />);
     expect(wrapper).toMatchSnapshot();
   });
 });

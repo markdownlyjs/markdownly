@@ -1,4 +1,4 @@
-import { getDocumentState, getMarkdown, getCurrentDocument, getCurrentDocumentVal } from './documentSelector';
+import { getDocumentState, getMarkdown, getCurrentDocument, getCurrentDocumentVal, getDocumentsList } from './documentSelector';
 
 describe('documentSelectors', () => {
 
@@ -7,6 +7,13 @@ describe('documentSelectors', () => {
 
     const document = getDocumentState(state);
     expect(document).toEqual({ currentDocument: 0, list: [{ title: 'some title', markdown: '# some markdown' }] });
+  });
+
+  it('gets the list of documents', () => {
+    const state = { documents: { currentDocument: 0, list: [{ title: 'some title', markdown: '# some markdown' }] } };
+
+    const document = getDocumentsList(state);
+    expect(document).toEqual([{ title: 'some title', markdown: '# some markdown' }]);
   });
 
   it('gets the current document object', () => {
