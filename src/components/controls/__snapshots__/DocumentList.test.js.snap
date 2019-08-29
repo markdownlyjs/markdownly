@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DocumentList component renders DocumentList 1`] = `<ul />`;
+exports[`DocumentList component renders DocumentList 1`] = `
+<ul>
+  <li>
+    <Connect(AddDocument) />
+  </li>
+</ul>
+`;

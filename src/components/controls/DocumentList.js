@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddDocument from '../../containers/AddDocument';
 
 const DocumentList = ({ documents }) => {
 
@@ -12,6 +13,9 @@ const DocumentList = ({ documents }) => {
   return (
     <ul>
       {documentList}
+      <li>
+        <AddDocument />
+      </li>
     </ul>
   );
 };

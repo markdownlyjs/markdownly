@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const DocumentForm = ({ handleSubmit, handleChange, inputValue }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <input value={inputValue} onChange={handleChange} />
+    <form onSubmit={e => handleSubmit(e, inputValue)}>
+      <input name="inputValue" value={inputValue} onChange={handleChange} />
       <button>+</button>
     </form>
   );
