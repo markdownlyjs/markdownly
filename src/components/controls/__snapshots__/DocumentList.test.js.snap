@@ -3,7 +3,11 @@
 exports[`DocumentList component renders DocumentList 1`] = `
 <ul>
   <li>
-    <Connect(AddDocument) />
+    <DocumentForm
+      handleChange={[Function]}
+      handleSubmit={[Function]}
+      inputValue=""
+    />
   </li>
 </ul>
 `;
