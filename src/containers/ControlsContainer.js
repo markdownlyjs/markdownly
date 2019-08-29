@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addDocument } from '../actions/documentActions';
+import { addDocument, selectDocument } from '../actions/documentActions';
 import DocumentList from '../components/controls/DocumentList';
 import { getDocumentsList } from '../selectors/documentSelector';
 
 class ControlsContainer extends React.Component {
   static propTypes ={
     handleSubmit: PropTypes.func.isRequired,
-    documents: PropTypes.array.isRequired
+    documents: PropTypes.array.isRequired,
+    handleSelect: PropTypes.func.isRequired
   };
 
   state = {
@@ -27,11 +28,12 @@ class ControlsContainer extends React.Component {
 
   render() {
     const { inputValue } = this.state;
-    const { documents } = this.props;
-    return <DocumentList 
+    const { documents, handleSelect } = this.props;
+    return <DocumentList
       documents={documents}
       handleFormSubmit={this.handleFormSubmit} 
       handleChange={this.handleChange}
+      handleSelect={handleSelect}
       inputValue={inputValue} 
     />;
   }
@@ -42,7 +44,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleSubmit: (title) => dispatch(addDocument(title))
+  handleSubmit: (title) => dispatch(addDocument(title)),
+  handleSelect: (index) => dispatch(selectDocument(index))
 });
 
 export default connect(

@@ -1,5 +1,5 @@
 import reducer from './documentReducer';
-import { updateMarkdown, addDocument } from '../actions/documentActions';
+import { updateMarkdown, addDocument, selectDocument } from '../actions/documentActions';
 
 describe('documentReducer', () => {
   it('returns the same state when it does not understand the action', () => {
@@ -34,6 +34,23 @@ describe('documentReducer', () => {
         { title: 'some title', markdown: 'some markdown' },
         { title: 'My New Document', markdown: '# Hello There' }
       ] 
+    });
+  });
+
+  it('it updates currentDocument index on SELECT_DOCUMENT action', () => {
+    const state = { currentDocument: 0, list: [
+      { title: 'some title', markdown: 'some markdown' },
+      { title: 'My New Document', markdown: '# Hello There' }
+    ] };
+    const action = selectDocument(1);
+
+    const newState = reducer(state, action);
+    expect(newState).toEqual({ 
+      currentDocument: 1, 
+      list: [
+        { title: 'some title', markdown: 'some markdown' },
+        { title: 'My New Document', markdown: '# Hello There' }
+      ]
     });
   });
 });

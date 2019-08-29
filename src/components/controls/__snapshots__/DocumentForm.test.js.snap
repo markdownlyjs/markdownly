@@ -7,6 +7,7 @@ exports[`DocumentForm component renders DocumentForm 1`] = `
   <input
     name="inputValue"
     onChange={[Function]}
+    placeholder="Add a document"
     value="hi"
   />
   <button>

@@ -1,4 +1,4 @@
-import { UPDATE_MARKDOWN, updateMarkdown, addDocument, ADD_DOCUMENT } from './documentActions';
+import { UPDATE_MARKDOWN, updateMarkdown, addDocument, ADD_DOCUMENT, selectDocument, SELECT_DOCUMENT } from './documentActions';
 
 describe('documentActions', () => {
   it('returns an update markdown action', () => {
@@ -16,6 +16,15 @@ describe('documentActions', () => {
     expect(action).toEqual({
       type: ADD_DOCUMENT,
       payload: 'title'
+    });
+  });
+
+  it('returns an select document action', () =>{
+    const action = selectDocument(1);
+
+    expect(action).toEqual({
+      type: SELECT_DOCUMENT,
+      payload: 1
     });
   });
 });
