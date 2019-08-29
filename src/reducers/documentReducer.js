@@ -1,13 +1,31 @@
-import { UPDATE_MARKDOWN } from '../actions/documentActions';
+import { UPDATE_MARKDOWN, ADD_DOCUMENT } from '../actions/documentActions';
 
 const initialState = {
-  markdown: ''
+  currentDocument: 0,
+  list: [
+    {
+      title: 'default',
+      markdown: '# Hello There'
+    }
+  ]
 };
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
     case UPDATE_MARKDOWN:
-      return { ...state, markdown: action.payload };
+      return { 
+        ...state, 
+        list: [
+          ...state.list.slice(0, state.currentDocument), 
+          { title: state.list[state.currentDocument].title, markdown: action.payload },
+          ...state.list.slice(state.currentDocument + 1)
+        ] 
+      };
+    case ADD_DOCUMENT:
+      return {
+        ...state, 
+        list: [...state.list, { title: action.payload, markdown: '# Hello There' }]
+      };
     default: 
       return state;
   }

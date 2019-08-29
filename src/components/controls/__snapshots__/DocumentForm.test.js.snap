@@ -5,6 +5,7 @@ exports[`DocumentForm component renders DocumentForm 1`] = `
   onSubmit={[Function]}
 >
   <input
+    name="inputValue"
     onChange={[Function]}
     value="hi"
   />
