@@ -17,18 +17,20 @@ class AddDocument extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
+  handleFormSubmit = (e, title) => {
+    e.preventDefault();
+    this.props.handleSubmit(title);
+    this.setState({ inputValue: '' });
+  };
+
   render() {
     const { inputValue } = this.state;
-    const { handleSubmit } = this.props;
-    return <DocumentForm inputValue={inputValue} handleChange={this.handleChange} handleSubmit={handleSubmit}/>;
+    return <DocumentForm inputValue={inputValue} handleChange={this.handleChange} handleSubmit={this.handleFormSubmit}/>;
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleSubmit: (e, title) => {
-    e.preventDefault();
-    dispatch(addDocument(title));
-  }
+  handleSubmit: (title) => dispatch(addDocument(title))
 });
 
 export default connect(
