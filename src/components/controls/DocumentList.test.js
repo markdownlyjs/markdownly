@@ -8,6 +8,7 @@ describe('DocumentList component', () => {
       documents={[]}
       handleFormSubmit={() => {}} 
       handleChange={() => {}}
+      handleSelect={() => {}}
       inputValue=''
     />);
     expect(wrapper).toMatchSnapshot();

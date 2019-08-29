@@ -1,13 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DocumentList component renders DocumentList 1`] = `
-<ul>
-  <li>
-    <DocumentForm
-      handleChange={[Function]}
-      handleSubmit={[Function]}
-      inputValue=""
-    />
-  </li>
-</ul>
+<section
+  style={
+    Object {
+      "padding": 10,
+    }
+  }
+>
+  <ul
+    style={
+      Object {
+        "display": "flex",
+        "listStyle": "none",
+        "padding": 0,
+      }
+    }
+  />
+  <DocumentForm
+    handleChange={[Function]}
+    handleSubmit={[Function]}
+    inputValue=""
+  />
+</section>
 `;

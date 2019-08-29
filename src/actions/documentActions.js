@@ -9,3 +9,9 @@ export const addDocument = (title) => ({
   type: ADD_DOCUMENT,
   payload: title
 });
+
+export const SELECT_DOCUMENT = 'SELECT_DOCUMENT';
+export const selectDocument = index => ({
+  type: SELECT_DOCUMENT,
+  payload: index
+});
